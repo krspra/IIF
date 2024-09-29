@@ -5,7 +5,24 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      screens:{
+        "custom1":"930px",
+        "custom2":"1110px"
+      }
+      ,
+      colors:{
+        blue:{
+          1:"var(--primary-color)",
+        },
+        black:{
+          1:"#524D3F"
+        }
+      },
+      backgroundImage: {
+        'custom-gradient':"var(--bg-gradient)",
+      },
+    },
   },
   plugins: [],
 }
