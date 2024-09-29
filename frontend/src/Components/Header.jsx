@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import LoginButton from "./LoginButton";
 import SignupButton from "./SignupButton";
 import { MdMenu } from "react-icons/md";
+import { IoMdClose } from "react-icons/io";
+import { useContext } from "react";
+import { MenuContext } from "../Context";
 
 function Header({
   scrollToAbout,
@@ -10,6 +13,8 @@ function Header({
   scrollToEvent,
   scrollToContact,
 }) {
+  const { updateMenuStatus, isMenuActive } = useContext(MenuContext);
+
   return (
     <header className="h-24 flex items-center justify-between sticky top-0 bg-white px-20 max-sm:px-4">
       {/* logo */}
@@ -74,13 +79,19 @@ function Header({
         </div>
 
         <nav>
-          <input type="checkbox" className="hidden" id="menu" />
-          <label htmlFor="menu">
-            <MdMenu className="text-4xl block md:hidden" />
+          <input
+            onChange={() => {
+              updateMenuStatus(!isMenuActive);
+            }}
+            type="checkbox"
+            className="hidden"
+            id="menu"
+          />
+          <label htmlFor="menu" className="cursor-pointer">
+           {isMenuActive? <IoMdClose className="text-4xl"/>:<MdMenu className="text-4xl block md:hidden" />} 
           </label>
         </nav>
       </div>
-
     </header>
   );
 }

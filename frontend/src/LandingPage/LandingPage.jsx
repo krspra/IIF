@@ -5,6 +5,7 @@ import Home from "./Home/Home";
 import EventGallery from "./EventGallery/EventGallery";
 import AboutUs from "./AboutUs/AboutUs";
 import ContactUs from "./ContactUs/ContactUs";
+import Menu from "../Components/Menu";
 
 function LandingPage() {
   const aboutRef = useRef(null);
@@ -27,6 +28,12 @@ function LandingPage() {
 
   return (
     <>
+      <Menu
+        scrollToAbout={scrollToAbout}
+        scrollToHome={scrollToHome}
+        scrollToEvent={scrollToEvent}
+        scrollToContact={scrollToContact}
+      />
       <Header
         scrollToAbout={scrollToAbout}
         scrollToHome={scrollToHome}
@@ -37,7 +44,7 @@ function LandingPage() {
         <Home homeRef={homeRef} />
         <EventGallery eventRef={eventRef} />
         <AboutUs aboutRef={aboutRef} />
-        <ContactUs contactRef={contactRef}/>
+        <ContactUs contactRef={contactRef} />
       </main>
       <Footer aboutRef={aboutRef} />
     </>

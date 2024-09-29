@@ -1,8 +1,9 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function LoginButton() {
   return (
-    <button className="h-10 w-16 text-lg">Login</button>
+    <Link to='authentication/login' className="h-10 w-16 text-lg flex text-center items-center">Login</Link>
   )
 }
 
