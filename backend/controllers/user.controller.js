@@ -33,12 +33,26 @@ const Signup = async (req, res) => {
       name,
     });
 
-    return res.status(200).json({
+    console.log(user);
+    
+    const tokenData={id:user._id};
+    console.log(tokenData);
+    
+    const token =jwt.sign(tokenData,process.env.SECRET_KEY,{
+      expiresIn:"15d"
+    })
+
+    return res.status(200).cookie("token",token,{
+      maxAge:15*24*60*60*1000,
+      httpOnly:true,
+      sameSite:"strict"
+    }).json({
       message: "User signed up successfully",
       success: true,
-      user,
+      user:{ email:user.email, _id:user._id, name:user.name }
     });
-  } catch (error) {
+  } 
+  catch (error) {
     console.log("Issue occurring during signup:", error);
     return res.status(500).json({
       message: "Internal server error",
@@ -83,8 +97,6 @@ const Login = async (req, res) => {
       expiresIn: "15d",
     });
 
-    // sending response (removing password from user before sending it)
-    const { _id, name } = user;
     return res
       .status(200)
       .cookie("token", token, {
@@ -93,9 +105,9 @@ const Login = async (req, res) => {
         sameSite: "strict", // CSRF protection
       })
       .json({
-        message: `Welcome back, ${user.name}`,
+        message: `logged in successfully`,
         success: true,
-        user: { email, _id, name }, // return user data without password
+        user: { email:user.email, _id:user._id, name:user.name }, // return user data without password
       });
   } catch (error) {
     console.log("Problem logging in:", error);

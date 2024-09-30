@@ -5,9 +5,10 @@ import App from "./App.jsx";
 import LandingPage from "./LandingPage/LandingPage.jsx";
 import Event from "./Event/Event.jsx";
 import { MenuContextProvider } from "./Context.jsx";
-import Authentication from "./Authentication/Authentication.jsx";
-import Signup from "./Authentication/Signup/Signup.jsx";
-import Login from "./Authentication/Login/Login.jsx";
+import Signup from "./Signup/Signup.jsx";
+import Login from "./Login/Login.jsx";
+
+
 
 const router = createBrowserRouter([
   {
@@ -20,22 +21,17 @@ const router = createBrowserRouter([
       },
       {
         path: "event",
-        element: <Event />,
+        element: <Event /> 
+      },
+
+      {
+        path: "Signup",
+        element: <Signup />,
       },
       {
-        path:"authentication",
-        element: <Authentication/>,
-        children:[
-          {
-            path:'',
-            element:<Signup/>
-          },
-          {
-            path:'login',
-            element:<Login/>
-          }
-        ]
-      }
+        path: "login",
+        element: <Login />,
+      },
     ],
   },
 ]);

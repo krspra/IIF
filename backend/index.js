@@ -1,11 +1,14 @@
 const express = require('express');
 const cookieParser = require('cookie-parser');
-const server = express();
 const cors = require('cors');
 const dotenv = require('dotenv');
 const userRouter = require('./routes/user.route');
+const path=require('path');
 
 dotenv.config({});
+const server = express();
+const _dirname=path.resolve()
+
 
 // Importing from files
 const connectDB = require('./utils/db');
@@ -23,6 +26,10 @@ server.use(cors(corsOptions));
 
 // API handling
 server.use('/api/user', userRouter);
+server.use(express.static(path.join(_dirname,"/frontend/dist")))
+server.get('*',(req,res)=>{
+    res.sendFile(path.resolve(_dirname,"frontend","dist","index.html"))
+})
 
 //-------------------------------
 const PORT = process.env.PORT || 3000;
