@@ -6,6 +6,7 @@ import { MdMenu } from "react-icons/md";
 import { IoMdClose } from "react-icons/io";
 import { useContext } from "react";
 import { MenuContext } from "../Context";
+import logo from "./images/iif-nsut-transparent.png"
 
 function Header({
   scrollToAbout,
@@ -25,7 +26,7 @@ function Header({
         }}
       >
         <img
-          src="./iif-nsut-transparent.png"
+          src={logo}
           alt="Logo"
           className="w-20 h-20 rounded-full"
         />

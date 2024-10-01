@@ -1,4 +1,7 @@
 import React from "react";
+import contact from "./contact.svg"
+import locate from "./locate.svg"
+import mail from "./mail.svg"
 
 function ContactUs({contactRef}) {
   return (
@@ -10,7 +13,7 @@ function ContactUs({contactRef}) {
 
         {/* BOX-1 */}
         <div className="w-60 flex flex-col items-center gap-2">
-          <img src="./locate.svg" className="h-40" alt="" />
+          <img src={locate} className="h-40" alt="" />
           <span className="text-4xl font-bold text-black-1">Locate us</span>
           <div>
             Room 410, Library Block 4th Floor, 
@@ -21,7 +24,7 @@ function ContactUs({contactRef}) {
 
         {/* BOX-2 */}
         <div className="w-60 flex flex-col items-center gap-2">
-          <img src="./mail.svg" className="h-40" alt="" />
+          <img src={mail} className="h-40" alt="" />
           <span className="text-4xl font-bold text-black-1">Mail us</span>
           <div className="text-center">
             support.nsutiif@nsut.ac.in 
@@ -32,7 +35,7 @@ function ContactUs({contactRef}) {
 
         {/* BOX-3 */}
         <div className="w-60 flex flex-col items-center gap-2">
-          <img src="./contact.svg" className="h-40" alt="" />
+          <img src={contact} className="h-40" alt="" />
           <span className="text-4xl font-bold text-black-1">Call us</span>
           <div>
             +91 8700528997 

@@ -4,6 +4,8 @@ import axios from "axios"; // Missing axios import
 import { USER_API_END_POINT } from "../constants/constant";
 import {Link} from "react-router-dom"
 import { useNavigate } from "react-router-dom";
+import login from "./signupBlue.svg"
+import logo from "./iif-nsut-transparent.png"
 
 function Login() {
   const navigate=useNavigate();
@@ -56,7 +58,7 @@ function Login() {
   return (
     <div className="flex justify-around items-center my-16">
       <div className="flex flex-col items-center gap-3">
-        <img src="./iif-nsut-transparent.png" className="h-24" alt="logo" />
+        <img src={logo} className="h-24" alt="logo" />
         <form className="w-[400px] h-96 flex flex-col gap-1 justify-around items-center max-custom3:h-64 max-custom3:w-[300px]">
 
           {/* Email */}
@@ -94,7 +96,7 @@ function Login() {
         </form>
       </div>
 
-      <img src="./signupBlue.svg" className="h-96 max-custom1:hidden" alt="signup illustration" />
+      <img src={login} className="h-96 max-custom1:hidden" alt="signup illustration" />
     </div>
   );
 }

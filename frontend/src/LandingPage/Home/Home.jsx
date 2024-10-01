@@ -1,5 +1,12 @@
 import React from "react";
 import SignupButton from "../../Components/SignupButton";
+import academic from "./academic.svg"
+import finance from "./finance.svg"
+import learning from "./learning.svg"
+import mentorship from "./mentorship.svg"
+import networking from "./networking.svg"
+import pitch from "./pitch.svg"
+import techsupport from "./techsupport.svg"
 
 function Home({ homeRef }) {
   return (
@@ -20,7 +27,7 @@ function Home({ homeRef }) {
           <SignupButton />
         </section>
         <img
-          src="./pitch.svg"
+          src={pitch}
           alt="pitching svg image"
           className="h-64 max-md:h-52"
         />
@@ -28,27 +35,27 @@ function Home({ homeRef }) {
 
       <article className="flex justify-around w-3/4 gap-16 flex-wrap"> 
         <div>
-          <img src="./academic.svg" alt="" className="h-28 w-28" />
+          <img src={academic} alt="" className="h-28 w-28" />
           <div className="text-center text-white text-lg">Academic Support</div>
         </div>
         <div>
-          <img src="./finance.svg" alt="" className="h-28 w-28" />
+          <img src={finance} alt="" className="h-28 w-28" />
           <div className="text-center text-white text-lg">Financial Assitance</div>
         </div>
         <div>
-          <img src="./learning.svg" alt="" className="h-28 w-28"/>
+          <img src={learning} alt="" className="h-28 w-28"/>
           <div className="text-center text-white text-lg">Hands-on Learning</div>
         </div>
         <div>
-          <img src="./mentorship.svg" alt="" className="h-28 w-28"/>
+          <img src={mentorship} alt="" className="h-28 w-28"/>
           <div className="text-center text-white text-lg">Mentorship</div>
         </div>
         <div>
-          <img src="./networking.svg" alt="" className="h-28 w-28"/>
+          <img src={networking} alt="" className="h-28 w-28"/>
           <div className="text-center text-white text-lg">Networking</div>
         </div>
         <div>
-          <img src="./techsupport.svg" alt="" className="h-28 w-28"/>
+          <img src={techsupport} alt="" className="h-28 w-28"/>
           <div className="text-center text-white text-lg">Tech Support</div>
         </div>
       </article>
