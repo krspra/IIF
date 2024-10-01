@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 import Header from "../Components/Header";
-import Footer from "../Components/Footer";
 import Home from "./Home/Home";
 import EventGallery from "./EventGallery/EventGallery";
 import AboutUs from "./AboutUs/AboutUs";
@@ -46,7 +45,6 @@ function LandingPage() {
         <AboutUs aboutRef={aboutRef} />
         <ContactUs contactRef={contactRef} />
       </main>
-      <Footer aboutRef={aboutRef} />
     </>
   );
 }

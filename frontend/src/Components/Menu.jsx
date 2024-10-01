@@ -2,6 +2,7 @@ import React from "react";
 import { useContext } from "react";
 import { MenuContext } from "../Context";
 import { Link } from "react-router-dom";
+import logo from "./images/iif-nsut-transparent.png"
 
 function Menu({ scrollToAbout, scrollToHome, scrollToEvent, scrollToContact }) {
   const { isMenuActive, updateMenuStatus } = useContext(MenuContext);
@@ -24,7 +25,7 @@ function Menu({ scrollToAbout, scrollToHome, scrollToEvent, scrollToContact }) {
         }}
       >
         <img
-          src="./iif-nsut-transparent.png"
+          src={logo}
           alt="Logo"
           className="w-20 h-20 rounded-full"
         />

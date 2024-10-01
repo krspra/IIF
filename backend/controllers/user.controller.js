@@ -32,11 +32,8 @@ const Signup = async (req, res) => {
       password: hashedPassword,
       name,
     });
-
-    console.log(user);
     
     const tokenData={id:user._id};
-    console.log(tokenData);
     
     const token =jwt.sign(tokenData,process.env.SECRET_KEY,{
       expiresIn:"15d"

@@ -1,11 +1,9 @@
-import React from "react";
-import { useRef } from "react";
-import axios from "axios"; // Missing axios import
+import React, { useRef } from "react";
+import axios from "axios";
 import { USER_API_END_POINT } from "../constants/constant";
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import signup from "./signupBlue.svg"
-import logo from "./iif-nsut-transparent.png"
+import { Link, useNavigate } from "react-router-dom";
+import signup from "./signupBlue.svg";
+import logo from "./iif-nsut-transparent.png";
 
 function Signup() {
   const navigate = useNavigate();
@@ -15,6 +13,7 @@ function Signup() {
   const passwordData = useRef("");
 
   const handleSignup = async () => {
+
     const name = nameData.current.value;
     const email = emailData.current.value;
     const password = passwordData.current.value;
@@ -24,35 +23,38 @@ function Signup() {
       return alert("Please Enter Name, Email & Password");
     }
 
-    // Checking if entered email is valid or not
+    // Checking if entered email is valid
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const isEmail = emailRegex.test(email);
     if (!isEmail) {
       return alert("Please Enter a Valid Email");
     }
 
-    // Create FormData instance
-    const formData = new FormData();
-    formData.append("name", name);
-    formData.append("email", email);
-    formData.append("password", password);
+    // Data object to be sent as JSON
+    const userData = {
+      name,
+      email,
+      password,
+    };
 
     try {
-      const res = await axios.post(`${USER_API_END_POINT}/signup`, formData, {
+      const res = await axios.post(`${USER_API_END_POINT}/signup`, userData, {
         headers: { "Content-Type": "application/json" },
         withCredentials: true,
       });
+
       if (res.data.success) {
         localStorage.setItem("name", res.data.user.name);
         navigate("/event");
       }
     } catch (error) {
-      alert(error.response.data.message);
+      console.log(error);
     }
 
+    // Clear the input fields
+    nameData.current.value = "";
     emailData.current.value = "";
     passwordData.current.value = "";
-    nameData.current.value = "";
   };
 
   return (

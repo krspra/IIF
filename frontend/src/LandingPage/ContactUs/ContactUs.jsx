@@ -37,7 +37,7 @@ function ContactUs({contactRef}) {
         <div className="w-60 flex flex-col items-center gap-2">
           <img src={contact} className="h-40" alt="" />
           <span className="text-4xl font-bold text-black-1">Call us</span>
-          <div>
+          <div className="text-center">
             +91 8700528997 
             +91 9205475058
           </div>

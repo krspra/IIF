@@ -13,7 +13,7 @@ function Login() {
   const emailData = useRef("");
   const passwordData = useRef("");
 
-  const handleSignup = async () => {
+  const handleLogin = async () => {
     const email = emailData.current.value;
     const password = passwordData.current.value;
 
@@ -29,13 +29,15 @@ function Login() {
       return alert("Please Enter a Valid Email");
     }
 
-    // Create FormData instance
-    const formData = new FormData();
-    formData.append("email", email);
-    formData.append("password", password);
+    // Sending the data as JSON
+    const loginData = {
+      email,
+      password,
+    };
+
 
     try {
-      const res = await axios.post(`${USER_API_END_POINT}/login`, formData, {
+      const res = await axios.post(`${USER_API_END_POINT}/login`, loginData, {
         headers: { 'Content-Type': 'application/json' },
         withCredentials: true,
       });
@@ -86,7 +88,7 @@ function Login() {
 
           {/* Button */}
           <button
-            onClick={handleSignup}
+            onClick={handleLogin}
             type="button"
             className="bg-blue-1 h-14 text-xl w-[95%] rounded-lg text-white font-bold"
           >
