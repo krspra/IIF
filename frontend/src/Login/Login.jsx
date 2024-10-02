@@ -48,8 +48,7 @@ function Login() {
       }
     } 
     catch (error) {
-      // alert(error.response.data.message)
-      console.log(error);
+      alert(error.response.data.message)
        
     }
     

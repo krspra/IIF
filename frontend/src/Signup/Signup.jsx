@@ -48,7 +48,7 @@ function Signup() {
         navigate("/event");
       }
     } catch (error) {
-      console.log(error);
+      alert(error.response.data.message)
     }
 
     // Clear the input fields
